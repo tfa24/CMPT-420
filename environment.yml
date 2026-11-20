@@ -1,0 +1,18 @@
+name: 420
+dependencies:
+  - python=3.12
+  - pip
+  - accelerate
+  - bitsandbytes
+  - cuda-toolkit
+  - datasets
+  - flash-attn
+  - gcc
+  - gxx
+  - peft
+  - pydantic-ai
+  - transformers
+  - trl
+  - pip:
+    - ida-pro-mcp @ https://github.com/mrexodia/ida-pro-mcp/archive/refs/heads/main.zip
+    - torch

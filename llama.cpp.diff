@@ -1,0 +1,16 @@
+diff --git a/convert_lora_to_gguf.py b/convert_lora_to_gguf.py
+index ee98d0cf9..b58352751 100755
+--- a/convert_lora_to_gguf.py
++++ b/convert_lora_to_gguf.py
+@@ -217,8 +217,9 @@ class LoraTorchTensor:
+             assert len(args)
+             assert isinstance(args[0], Sequence)
+             dim = kwargs.get("dim", 0)
+-            assert dim == 0
+-            if len(args[0][0].shape) > 2:
++            if dim < 0:
++                dim += len(args[0][0].shape)
++            if len(args[0][0].shape) > 2 and dim == 0:
+                 return LoraTorchTensor(
+                     torch.cat([a._lora_A for a in args[0]], dim),
+                     torch.cat([b._lora_B for b in args[0]], dim),
